@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Vehicles/Vehicle.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Vehicles/wheel.png" type="Texture" id=2]
-[ext_resource path="res://Vehicles/Wheel.gd" type="Script" id=3]
 [ext_resource path="res://Sprites/Vehicles/truck.png" type="Texture" id=4]
+[ext_resource path="res://Vehicles/Wheel.tscn" type="PackedScene" id=5]
 
 [sub_resource type="PhysicsMaterial" id=1]
 
@@ -25,38 +24,30 @@ steering_speed_decay = 0.2
 
 [node name="Wheels" type="Node2D" parent="."]
 
-[node name="FL" type="Sprite" parent="Wheels"]
+[node name="FL" parent="Wheels" instance=ExtResource( 5 )]
 position = Vector2( -56, -51 )
 scale = Vector2( 1.7, 1.5 )
-texture = ExtResource( 2 )
-script = ExtResource( 3 )
 is_steering = true
 max_angle = 25.0
 power = 3.0
 
-[node name="FR" type="Sprite" parent="Wheels"]
+[node name="FR" parent="Wheels" instance=ExtResource( 5 )]
 position = Vector2( 56, -51 )
 scale = Vector2( 1.7, 1.5 )
-texture = ExtResource( 2 )
-script = ExtResource( 3 )
 is_steering = true
 max_angle = 25.0
 power = 3.0
 
-[node name="RL" type="Sprite" parent="Wheels"]
-position = Vector2( -56, 51 )
+[node name="RR" parent="Wheels" instance=ExtResource( 5 )]
+position = Vector2( 56, 51 )
 scale = Vector2( 1.7, 1.5 )
-texture = ExtResource( 2 )
-script = ExtResource( 3 )
 is_steering = true
 max_angle = -25.0
 power = 3.0
 
-[node name="RR" type="Sprite" parent="Wheels"]
-position = Vector2( 56, 51 )
+[node name="RL" parent="Wheels" instance=ExtResource( 5 )]
+position = Vector2( -56, 51 )
 scale = Vector2( 1.7, 1.5 )
-texture = ExtResource( 2 )
-script = ExtResource( 3 )
 is_steering = true
 max_angle = -25.0
 power = 3.0
